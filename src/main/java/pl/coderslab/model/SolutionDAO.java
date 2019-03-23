@@ -23,7 +23,7 @@ public class SolutionDAO {
     // nasze query do wykonania, trzeba dostarczyć parametr pod (?)
     // określający LIMIT
     public static final String FIND_RECENT_QUERY =
-        "SELECT * FROM solutions ORDER BY solution_id LIMIT ?";
+        "SELECT * FROM solutions ORDER BY solution_id DESC LIMIT ?";
 
     // metoda pobierającą z bazy danych ostatnie rozwiązania
     public static List<Solution> findRecent(int limit) {
