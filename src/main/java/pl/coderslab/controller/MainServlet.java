@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/")
+/** Obsługa strony głównej */
+@WebServlet("")
 public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String numbersSolution = getServletContext().getInitParameter("number-solutions");
-
         List<Solution> recentSolutions = SolutionDAO.findRecent(Integer.valueOf(numbersSolution));
 
         req.setAttribute("recentSolutions", recentSolutions);

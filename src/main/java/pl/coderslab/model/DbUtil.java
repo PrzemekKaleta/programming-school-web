@@ -16,7 +16,10 @@ public class DbUtil {
         if(ds == null) {
             try {
                 Context ctx = new InitialContext();
-                ds = (DataSource)ctx.lookup("java:comp/env/jdbc/school");
+
+                Context initContext = new InitialContext();
+                Context envContext  = (Context)initContext.lookup("java:/comp/env");
+                ds = (DataSource)envContext.lookup("jdbc/school");
             } catch (NamingException e) {
                 e.printStackTrace();}}
         return ds;}
